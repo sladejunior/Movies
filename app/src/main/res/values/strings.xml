@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="poster_of_movie">Film posteri</string>
+    <string name="top_rated">Reytingi balandlar</string>
+    <string name="most_popular">Eng ommaboplar</string>
+    <string name="poster_image">Poster rasm</string>
+    <string name="fav_add">Removed from favourite</string>
+    <string name="fav_remove">Added to favourite</string>
+    <string name="item_main">Asosiy</string>
+    <string name="item_fav">Favourite</string>
+    <string name="treylerni_yuritish">Treylerni yuritish</string>
+</resources>
