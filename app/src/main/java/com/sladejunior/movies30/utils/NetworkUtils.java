@@ -144,7 +144,7 @@ public class NetworkUtils {
         protected void onStartLoading() {
             super.onStartLoading();
             if(onStartLoadingListener!=null){
-            forceLoad();
+                forceLoad();
             }
         }
 

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.TrailerViewHolder> {
 
-private ArrayList<Trailer> trailers;
+    private ArrayList<Trailer> trailers;
     private OnTrailerClickListener onTrailerClickListener;
 
     @NonNull
@@ -27,8 +27,8 @@ private ArrayList<Trailer> trailers;
 
     @Override
     public void onBindViewHolder(@NonNull TrailerViewHolder holder, int position) {
-    Trailer trailer = trailers.get(position);
-    holder.textViewNameOfVideo.setText(trailer.getName());
+        Trailer trailer = trailers.get(position);
+        holder.textViewNameOfVideo.setText(trailer.getName());
     }
 
     @Override

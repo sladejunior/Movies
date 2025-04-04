@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       loaderManager = LoaderManager.getInstance(this);
+        loaderManager = LoaderManager.getInstance(this);
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         recyclerViewPosters = findViewById(R.id.recyclerViewPosters);
@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         switchSort.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-               page = 1;
-               setMethodOfSort(isChecked);
+                page = 1;
+                setMethodOfSort(isChecked);
             }
         });
         switchSort.setChecked(false);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public void onReachEnd() {
                 if(!isLoading){
-                downloadData(methodOfSort,page);
+                    downloadData(methodOfSort,page);
                 }
             }
         });
@@ -205,8 +205,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ArrayList<Movie> movies = JSONUtils.getMoviesFromJSON(jsonObject);
         if (movies != null && !movies.isEmpty()) {
             if(page==1){
-            viewModel.deleteAllMovies();
-            movieAdapter.clear();
+                viewModel.deleteAllMovies();
+                movieAdapter.clear();
             }
             for (Movie movie : movies) {
                 viewModel.insertMovie(movie);

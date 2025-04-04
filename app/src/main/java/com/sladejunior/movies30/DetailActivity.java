@@ -54,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
     private ReviewAdapter reviewAdapter; //
     private ScrollView scrollViewInfo;
 
-private MainViewModel viewModel;
+    private MainViewModel viewModel;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,8 +98,8 @@ private MainViewModel viewModel;
             finish();
         }
 
-            viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-      movie = viewModel.getMovieById(id);
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        movie = viewModel.getMovieById(id);
 
         Picasso.get().load(movie.getBigPosterPath()).into(imageViewBigPoster);
         textViewTitle.setText(movie.getTitle());
@@ -107,7 +107,7 @@ private MainViewModel viewModel;
         textViewOverview.setText(movie.getOverview());
         textViewReleaseDate.setText(movie.getReleaseDate());
         textViewRating.setText(String.valueOf(movie.getVoteAverage()));
-    setFavourite();
+        setFavourite();
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
         recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
         reviewAdapter = new ReviewAdapter();
@@ -124,21 +124,21 @@ private MainViewModel viewModel;
         JSONObject jsonObjectReviews = NetworkUtils.getJSONForReviews(movie.getId());
         ArrayList<Trailer> trailers = JSONUtils.getTrailersFromJSON(jsonObjectTrailers);
         ArrayList<Review> reviews = JSONUtils.getReviewsFromJSON(jsonObjectReviews);
-reviewAdapter.setReviews(reviews);
-trailerAdapter.setTrailers(trailers);
+        reviewAdapter.setReviews(reviews);
+        trailerAdapter.setTrailers(trailers);
 
 
-trailerAdapter.setOnTrailerClickListener(new TrailerAdapter.OnTrailerClickListener() {
-    @Override
-    public void onTrailerClick(String url) {
-       Intent intentToTrailer = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-       startActivity(intentToTrailer);
-    }
-});
+        trailerAdapter.setOnTrailerClickListener(new TrailerAdapter.OnTrailerClickListener() {
+            @Override
+            public void onTrailerClick(String url) {
+                Intent intentToTrailer = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intentToTrailer);
+            }
+        });
         imageViewAddToFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                               if(favouriteMovie == null){
+                if(favouriteMovie == null){
                     viewModel.insertFavouriteMovie(new FavouriteMovie(movie));
                     Toast.makeText(getApplicationContext(), R.string.fav_remove, Toast.LENGTH_SHORT).show();
                     ;
@@ -146,7 +146,7 @@ trailerAdapter.setOnTrailerClickListener(new TrailerAdapter.OnTrailerClickListen
                     viewModel.deleteFavouriteMovie(favouriteMovie);
                     Toast.makeText(getApplicationContext(), R.string.fav_add, Toast.LENGTH_SHORT).show();
                 }
-                               setFavourite();
+                setFavourite();
             }
         });
     }
@@ -159,5 +159,5 @@ trailerAdapter.setOnTrailerClickListener(new TrailerAdapter.OnTrailerClickListen
             imageViewAddToFavourite.setImageResource(R.drawable.favourite_remove);
         }
     }
-   
+
 }

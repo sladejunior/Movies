@@ -109,12 +109,12 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     private static class GetMovieTask extends AsyncTask<Integer, Void, Movie> {
-    @Override
-    protected Movie doInBackground(Integer... integers) {
-        if (integers != null && integers.length > 0) {
-            return database.movieDao().getMovieById(integers[0]);
+        @Override
+        protected Movie doInBackground(Integer... integers) {
+            if (integers != null && integers.length > 0) {
+                return database.movieDao().getMovieById(integers[0]);
             }
-        return null;
+            return null;
         }
     }
 

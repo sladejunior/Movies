@@ -38,7 +38,7 @@ public class FavouriteActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-              final int idMain = R.id.item_main;
+        final int idMain = R.id.item_main;
         final int idFav = R.id.itemFavourite;
         int id = item.getItemId();
         if(id == idMain) {
@@ -66,8 +66,8 @@ public class FavouriteActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<FavouriteMovie> favouriteMovies) {
                 if(favouriteMovies!=null){
-                List<Movie> movies = new ArrayList<>(favouriteMovies);
-                adapter.setMovies(movies);}
+                    List<Movie> movies = new ArrayList<>(favouriteMovies);
+                    adapter.setMovies(movies);}
             }
         });
         adapter.setOnPosterClickListener(new MovieAdapter.OnPosterClickListener() {
